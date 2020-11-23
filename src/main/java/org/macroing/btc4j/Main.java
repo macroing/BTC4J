@@ -18,6 +18,12 @@
  */
 package org.macroing.btc4j;
 
+/**
+ * This {@code Main} class can be used as a reference and for testing.
+ * 
+ * @since 1.0.0
+ * @author J&#246;rgen Lundgren
+ */
 public final class Main {
 	private Main() {
 		
@@ -25,6 +31,11 @@ public final class Main {
 	
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	
+	/**
+	 * Called when this program is executed.
+	 * 
+	 * @param args the parameter arguments that are not used
+	 */
 	public static void main(final String[] args) {
 		final PrivateKey privateKey = PrivateKey.parseStringHex("18E14A7B6A307F426A94F8114701E7C8E774E7F9A47E2C2035DB29A206321725");
 //		final PrivateKey privateKey = PrivateKey.parseStringWIF("5J1F7GHadZG3sCCKHCwg8Jvys9xUbFsjLnGec4H125Ny1V9nR6V");

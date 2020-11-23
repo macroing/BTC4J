@@ -108,7 +108,7 @@ final class Utilities {
 		final byte[] decoded = doBase58Decode(input);
 		
 		if(decoded.length < 4) {
-			throw new RuntimeException();
+			throw new IllegalArgumentException();
 		}
 		
 		final byte[] data = Arrays.copyOfRange(decoded, 0, decoded.length - 4);
@@ -116,7 +116,7 @@ final class Utilities {
 		final byte[] actualChecksum = Arrays.copyOfRange(computeHashUsingSHA256(computeHashUsingSHA256(data)), 0, 4);
 		
 		if(!Arrays.equals(checksum, actualChecksum)) {
-			throw new RuntimeException();
+			throw new IllegalArgumentException();
 		}
 		
 		return data;
