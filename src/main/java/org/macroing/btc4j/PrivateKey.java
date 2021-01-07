@@ -20,6 +20,7 @@ package org.macroing.btc4j;
 
 import java.math.BigInteger;
 import java.util.Objects;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * A {@code PrivateKey} represents a private key for Bitcoin.
@@ -325,6 +326,25 @@ public final class PrivateKey {
 		}
 		
 		throw new IllegalArgumentException("Invalid format: " + stringWIF);
+	}
+	
+	/**
+	 * Returns a random {@code PrivateKey} instance.
+	 * <p>
+	 * This method is not cryptographically secure and should therefore not be used to create a real private key.
+	 * 
+	 * @return a random {@code PrivateKey} instance
+	 */
+	public static PrivateKey random() {
+		final int digits = ThreadLocalRandom.current().nextInt(1, 101);
+		
+		final StringBuilder stringBuilder = new StringBuilder();
+		
+		for(int i = 0; i < digits; i++) {
+			stringBuilder.append(ThreadLocalRandom.current().nextInt(0, 10));
+		}
+		
+		return new PrivateKey(new BigInteger(stringBuilder.toString(), 10));
 	}
 	
 	////////////////////////////////////////////////////////////////////////////////////////////////////
